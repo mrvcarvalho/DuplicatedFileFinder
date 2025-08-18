@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DuplicatedFileFinder": {
+      "commandName": "Project",
+      "commandLineArgs": "D:\\_DuplicationFileTest -v",
+      "workingDirectory": "D:"
+    }
+  }
+}

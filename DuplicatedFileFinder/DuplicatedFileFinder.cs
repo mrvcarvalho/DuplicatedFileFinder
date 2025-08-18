@@ -15,7 +15,7 @@
             }
             if (files.Count == 1)
             {
-                return new List<EqualFiles>(); // No duplicates possible with a single file
+                return []; // No duplicates possible with a single file
             }
 
             var duplicateGroups = files

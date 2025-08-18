@@ -2,6 +2,13 @@
 {
     public class EqualFiles
     {
+        public EqualFiles() { }
+
+        public EqualFiles(MyFileInfo file)
+        {
+            AddOneMoreEqualFile(file);
+        }
+
         public int Count => File.Count;
         public string FullPath => File.FirstOrDefault()?.FullPath ?? string.Empty;
         public string Directory => File.FirstOrDefault()?.Directory ?? string.Empty;
@@ -25,20 +32,13 @@
 
         public List<MyFileInfo> File { get; set; } = [];
 
-        public EqualFiles(){}
-
-        public EqualFiles(MyFileInfo file)
-        {
-            AddOneMoreEqualFile(file);
-        }
-
         public void AddOneMoreEqualFile(MyFileInfo file)
         {
             if (file is null)
             {
                 throw new ArgumentNullException(nameof(file), "File cannot be null");
             }
-            if (File.Any() && File.Any(f => !f.Equals(file)))
+            if (File.Count != 0 && File.Any(f => !f.Equals(file)))
             {
                 throw new InvalidOperationException("Ivalid attempt to insert a diferent File.");
             }
@@ -58,9 +58,9 @@
             {
                 return $"EqualFiles: Single file" +
                        $"\n{firstFile.FullPath}" +
-                       $"\n  Size: {FormatFileSize(firstFile.Size)}" +
+                       $"\n  Size: {Utils.FormatFileSize(firstFile.Size)}" +
                        $"\n  Hash: {firstFile.HashFile}" +
-                       $"\n  BytesWasted : {FormatFileSize(BytesWasted)}";
+                       $"\n  BytesWasted : {Utils.FormatFileSize(BytesWasted)}";
             }
 
             // If there are multiple files, return the list of files
@@ -68,24 +68,9 @@
 
             return $"EqualFiles: {File.Count} duplicate files found" +
                    $"\n{fileList}" +
-                   $"\n  Size: {FormatFileSize(firstFile.Size)} each" +
+                   $"\n  Size: {Utils.FormatFileSize(firstFile.Size)} each" +
                    $"\n  Hash: {firstFile.HashFile}" +
-                   $"\n  BytesWasted : {FormatFileSize(BytesWasted)}";
-        }
-
-        private static string FormatFileSize(long bytes)
-        {
-            string[] suffixes = { "bytes", "Kb", "Mb", "Gb", "Tb" };
-            int counter = 0;
-            decimal number = bytes;
-
-            while (Math.Round(number / 1024) >= 1)
-            {
-                number /= 1024;
-                counter++;
-            }
-
-            return $"{number:n1} {suffixes[counter]}";
+                   $"\n  BytesWasted : {Utils.FormatFileSize(BytesWasted)}";
         }
     }
 }

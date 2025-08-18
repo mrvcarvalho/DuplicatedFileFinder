@@ -6,6 +6,44 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<UseAppHost>false</UseAppHost>
+
+	<!-- Versão base -->
+	<VersionMajor>1</VersionMajor>
+	<VersionMinor>0</VersionMinor>
+	<VersionPatch>0</VersionPatch>
+
+	<!-- Build number baseado na data -->
+	<BuildNumber>$([System.DateTime]::Now.ToString("yyMMdd"))</BuildNumber>
+	<BuildTime>$([System.DateTime]::Now.ToString("HHmm"))</BuildTime>
+
+	<!-- Versões finais -->
+	<AssemblyVersion>$(VersionMajor).$(VersionMinor).$(VersionPatch).0</AssemblyVersion>
+	<FileVersion>$(VersionMajor).$(VersionMinor).$(VersionPatch).$(BuildNumber)</FileVersion>
+	<Version>$(VersionMajor).$(VersionMinor).$(VersionPatch)</Version>
+	<AssemblyInformationalVersion>$(Version)-build.$(BuildNumber).$(BuildTime)</AssemblyInformationalVersion>
+
+	<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+
+	<!-- Metadados adicionais -->
+	<Company>Home Office</Company>
+	<Product>DuplicatedFileFinder</Product>
+	<Description>Duplicate File Finder</Description>
+	<Copyright>Copyright © $([System.DateTime]::Now.ToString("yyyy"))</Copyright>
+
   </PropertyGroup>
+
+	
+	<!-- Adicionar data de build como metadado -->
+	<Target Name="AddBuildDate" BeforeTargets="CoreCompile">
+		<ItemGroup>
+			<AssemblyMetadata Include="BuildDate" Value="$([System.DateTime]::Now.ToString('yyyy-MM-dd HH:mm:ss'))" />
+			<AssemblyMetadata Include="BuildMachine" Value="$(COMPUTERNAME)" />
+			<AssemblyMetadata Include="BuildUser" Value="$(USERNAME)" />
+		</ItemGroup>
+	</Target>
+
+  <ItemGroup>
+    <PackageReference Include="LiteDB" Version="5.0.21" />
+  </ItemGroup>
 
 </Project>

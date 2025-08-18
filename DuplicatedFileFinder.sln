@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuplicatedFileFinder", "DuplicatedFileFinder\DuplicatedFileFinder.csproj", "{6DCC0477-A9E5-4F2D-A1CA-76D882CB25D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuplicatedFileFinderTest", "DuplicatedFileFinderTest\DuplicatedFileFinderTest.csproj", "{51F37FDD-5F33-4A89-9E20-A59C99FCCD13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6DCC0477-A9E5-4F2D-A1CA-76D882CB25D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DCC0477-A9E5-4F2D-A1CA-76D882CB25D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DCC0477-A9E5-4F2D-A1CA-76D882CB25D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F37FDD-5F33-4A89-9E20-A59C99FCCD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F37FDD-5F33-4A89-9E20-A59C99FCCD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F37FDD-5F33-4A89-9E20-A59C99FCCD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F37FDD-5F33-4A89-9E20-A59C99FCCD13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
