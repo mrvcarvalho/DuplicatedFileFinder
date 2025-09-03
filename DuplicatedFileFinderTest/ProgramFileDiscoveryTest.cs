@@ -75,9 +75,9 @@ namespace DuplicatedFileFinderTest
         public void DiscoverFiles_WithExcludePatterns_ShouldExcludeMatching()
         {
             // Arrange
-            CreateTestFile("normal.txt");
+            CreateTestFile("temp/cache/normal.txt");
             CreateTestFile("temp_file.txt");
-            CreateTestFile("cache/data.txt");
+            CreateTestFile("data_cache.txt");
 
             var options = new CommandLineOptions
             {

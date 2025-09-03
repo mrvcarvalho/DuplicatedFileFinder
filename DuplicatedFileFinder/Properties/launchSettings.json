@@ -1,9 +1,19 @@
 {
   "profiles": {
-    "DuplicatedFileFinder": {
+    "No-Logging": {
       "commandName": "Project",
-      "commandLineArgs": "D:\\_DuplicationFileTest -v",
-      "workingDirectory": "D:"
+      "commandLineArgs": "-d G:\\My%20Drive\\ --no-pause --verbose --min-size 100000000 --exclude ini,msb,gdoc,gsheet,gslides,gform,gdraw,gfolder,gmaps,gsite,gscript,gjam,gcolab,gstudio,gkeep,gearth,gchat,gcal",
+      "workingDirectory": "D:\\_DuplicationFileTest"
+    },
+    "Debug-With-Logging": {
+      "commandName": "Project",
+      "commandLineArgs": "-d G:\\My%20Drive\\ --log-level Debug --log-file debug.log --no-pause --min-size 100000000 --exclude ini,msb,gdoc,gsheet,gslides,gform,gdraw,gfolder,gmaps,gsite,gscript,gjam,gcolab,gstudio,gkeep,gearth,gchat,gcal",
+      "workingDirectory": "D:_DuplicationFileTest"
+    },
+    "Trace-Logging": {
+      "commandName": "Project",
+      "commandLineArgs": "-d G:\\My%20Drive\\ --log-level Trace --log-file trace.log --verbose --no-pause --exclude lnk,ini,msb,gdoc,gsheet,gslides,gform,gdraw,gfolder,gmaps,gsite,gscript,gjam,gcolab,gstudio,gkeep,gearth,gchat,gcal",
+      "workingDirectory": "D:_DuplicationFileTest"
     }
   }
 }

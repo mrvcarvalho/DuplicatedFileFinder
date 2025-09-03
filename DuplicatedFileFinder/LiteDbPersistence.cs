@@ -29,7 +29,7 @@ namespace DuplicatedFileFinder
                     FileCount = d.Count,
                     FileSize = d.Size,
                     BytesWasted = d.BytesWasted,
-                    Files = d.File.Select(f => new FileInfoDocument
+                    Files = d.EqualFileList.Select(f => new FileInfoDocument
                     {
                         FullPath = f.FullPath,
                         Directory = f.Directory,

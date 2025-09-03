@@ -99,7 +99,7 @@ namespace DuplicatedFileFinderTest
 
             _output.WriteLine($"First group: {firstGroup.Count} files, {firstGroup.BytesWasted} bytes wasted");
             _output.WriteLine($"Hash: {firstGroup.HashFile}");
-            _output.WriteLine($"Files: {string.Join(", ", firstGroup.File.Select(f => f.FileName))}");
+            _output.WriteLine($"Files: {string.Join(", ", firstGroup.EqualFileList.Select(f => f.FileName))}");
         }
 
         [Fact]
@@ -114,10 +114,10 @@ namespace DuplicatedFileFinderTest
             var group = duplicates.First();
             Assert.True(group.Count >= 2);
             Assert.True(group.BytesWasted > 0);
-            Assert.All(group.File, f => Assert.True(File.Exists(f.FullPath)));
+            Assert.All(group.EqualFileList, f => Assert.True(File.Exists(f.FullPath)));
 
             // Verificar que todos os arquivos têm o mesmo hash
-            var hashes = group.File.Select(f => f.HashFile).Distinct().ToList();
+            var hashes = group.EqualFileList.Select(f => f.HashFile).Distinct().ToList();
             Assert.Single(hashes); // Todos devem ter o mesmo hash
 
             _output.WriteLine($"Real files group: {group}");

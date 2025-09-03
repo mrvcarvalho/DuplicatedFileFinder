@@ -47,7 +47,7 @@ namespace DuplicatedFileFinderTest
             var output = GetConsoleOutput();
 
             // Assert
-            Assert.Contains("USO:", output);
+            Assert.Contains("[EXAMPLE]", output);
             Assert.Contains("--directory", output);
             Assert.Contains("--help", output);
             Assert.Contains("EXEMPLOS:", output);
@@ -69,7 +69,7 @@ namespace DuplicatedFileFinderTest
             "--directory", "--extensions", "--exclude", "--min-size",
             "--max-results", "--silent", "--verbose", "--list",
             "--load", "--export", "--help", "--version"
-        };
+            };
 
             foreach (var option in expectedOptions)
             {
